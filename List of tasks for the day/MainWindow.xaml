@@ -1,0 +1,22 @@
+﻿<Window x:Class="List_of_tasks_for_the_day.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:List_of_tasks_for_the_day"
+        mc:Ignorable="d"
+        Title="List of tasks for the day" Height="450" Width="800" Loaded="Window_Loaded" Background="Gray">
+    <Grid Background="Gray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="106*"/>
+            <ColumnDefinition Width="291*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="DG_ToDo_List" FontSize="16" FontWeight="Bold" FontStyle="Italic" Margin="0,10,9.6,10" Background="Wheat" Grid.ColumnSpan="2" AutoGenerateColumns="False" HorizontalAlignment="Right" Width="774">
+            <DataGrid.Columns >
+                <DataGridTextColumn Binding="{Binding Path= CreationDate}" IsReadOnly="True" Header="DataCreate" Width="100" />
+                <DataGridCheckBoxColumn Binding="{Binding Path= IsDone, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Header="Status" Width="60" />
+                <DataGridTextColumn Binding="{Binding Path= Text}" IsReadOnly="False" Header="TaskList" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
